@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const pgConnection = process.env.DATABASE_URL || 'postgres://edwuwmjmjgltua:cdf0f6ec93034af036d353099fbc70d4c45ce78f97ea1012a7776ced6dec12d6@ec2-34-238-26-109.compute-1.amazonaws.com:5432/d2kc9upe4g2407';
+const pgConnection = process.env.DATABASE_URL || 'postgres://postgres:1790@localhost:4000/auth';
 
 
 module.exports = {
