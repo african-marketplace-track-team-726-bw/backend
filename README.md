@@ -17,8 +17,14 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 | email     | string  | _required_ and _unique_            |
 | location  | string  | _required_                         |
 | username  | string  | _required_                         |
-| firstName | string  | _required_                         |
-| lastName  | string  | _required_                         |
+| name      | string  | _required_                         |
+
+#### Category_List
+
+| Field        | Type    | Notes                              |
+| ------------ | ------- | ---------------------------------- |
+| id           | integer | _primary key_ and _autoincrements_ |
+| category     | string  | _required_                         |
 
 #### Items_List
 
@@ -32,12 +38,6 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 | description  | string  | _required_                         |
 | price        | string  | _required_                         |
 
-#### Category_List
-
-| Field        | Type    | Notes                              |
-| ------------ | ------- | ---------------------------------- |
-| id           | integer | _primary key_ and _autoincrements_ |
-| category     | string  | _required_                         |
 
 ## API
 
@@ -62,11 +62,11 @@ test account:
 | POST    | `/auth/login`                  | login an existing user          |
 | POST    | `/items`                       | add new item                    |
 | GET     | `/items`                       | list items                      |
-| PUT     | `/auth/items/:id`              | update item                     |
+| PUT     | `/auth/items/:name`            | update item                     |
 | PUT     | `/auth/user/:username`         | Update username                 |
 | GET     | `/items/:category_id`          | Get items by category           |
-| DELETE  | `/items/:id`                   | remove items                    |
-| DELETE  | `/auth/users/:id`              | Delete user                     |
+| DELETE  | `/items/:name`                 | remove items                    |
+| DELETE  | `/auth/users/:username`        | Delete user                     |
 
 
 ## Examples
