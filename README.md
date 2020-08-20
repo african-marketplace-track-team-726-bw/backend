@@ -33,8 +33,7 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 | id           | integer | _primary key_ and _autoincrements_ |
 | users_id     | integer | _required_ and _forgein key_       |
 | category_id  | integer | _required_ and _forgein key_       |
-| name         | string  | _required_                         |
-| location     | string  | _required_                         |
+| product      | string  | _required_                         |
 | description  | string  | _required_                         |
 | price        | string  | _required_                         |
 
