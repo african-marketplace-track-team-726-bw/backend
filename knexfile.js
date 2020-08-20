@@ -1,6 +1,6 @@
-// require('dotenv').config();
+require('dotenv').config();
 
-// const pgConnection = process.env.DATABASE_URL || 'postgresql://postgres@localhost/auth';
+const pgConnection = process.env.DATABASE_URL || 'postgresql://postgres@localhost/auth';
 
 
 module.exports = {
@@ -25,20 +25,20 @@ module.exports = {
     },
   },
 
-  // production: {
-  //   client: 'pg',
-  //   connection: pgConnection,
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     directory: './database/migrations',
-  //   },
-  //   seeds: {
-  //     directory: './database/seeds',
-  //   },
-  // },
+  production: {
+    client: 'pg',
+    connection: pgConnection,
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      directory: './database/migrations',
+    },
+    seeds: {
+      directory: './database/seeds',
+    },
+  },
 
   testing: {
     client: 'sqlite3',
