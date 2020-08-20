@@ -11,11 +11,11 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 
 #### Users
 
-| Field    | Type    | Notes                               |
-| -------- | ------- | ----------------------------------- |
+| Field     | Type    | Notes                              |
+| --------- | ------- | ---------------------------------- |
 | id        | integer | _primary key_ and _autoincrements_ |
 | email     | string  | _required_ and _unique_            |
-| password  | string  | _required_                         |
+| location  | string  | _required_                         |
 | username  | string  | _required_                         |
 | firstName | string  | _required_                         |
 | lastName  | string  | _required_                         |
@@ -26,11 +26,18 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 | ------------ | ------- | ---------------------------------- |
 | id           | integer | _primary key_ and _autoincrements_ |
 | users_id     | integer | _required_ and _forgein key_       |
-| name         | integer | _required_                         |
-| location     | integer | _required_                         |
-| description  | integer | _required_                         |
-| price        | integer | _required_                         |
+| category_id  | integer | _required_ and _forgein key_       |
+| name         | string  | _required_                         |
+| location     | string  | _required_                         |
+| description  | string  | _required_                         |
+| price        | string  | _required_                         |
 
+#### Category_List
+
+| Field        | Type    | Notes                              |
+| ------------ | ------- | ---------------------------------- |
+| id           | integer | _primary key_ and _autoincrements_ |
+| category     | string  | _required_                         |
 
 ## API
 
@@ -42,8 +49,8 @@ test account:
   "username": "testuser",
   "password": "Lambda",
   "email": "testuser@email.com",
-  "firstName": "Jane",
-  "lastName": "Doe"
+  "name": "Jane Doe",
+  "location": "Africa"
 }
 ```
 
@@ -53,11 +60,11 @@ test account:
 | ------ | ------------------------------- | ------------------------------- |
 | POST    | `/auth/register`               | register a new user             |
 | POST    | `/auth/login`                  | login an existing user          |
-| POST    | `/items`                       | add new user                    |
+| POST    | `/items`                       | add new item                    |
 | GET     | `/items`                       | list items                      |
 | PUT     | `/auth/items/:id`              | update item                     |
 | PUT     | `/auth/user/:username`         | Update username                 |
-| GET     | `/items/:location`             | Get items by location           |
+| GET     | `/items/:category_id`          | Get items by category           |
 | DELETE  | `/items/:id`                   | remove items                    |
 | DELETE  | `/auth/users/:id`              | Delete user                     |
 
@@ -73,8 +80,9 @@ request data:
   "email": "testuser@email.com",
   "password": "Lambda",
   "username": "testuser",
-  "firstName": "Jane",
-  "lastName": "Doe"
+  "name": "Jane Doe",
+  "location": "Africa"
+
 }
 ```
 
