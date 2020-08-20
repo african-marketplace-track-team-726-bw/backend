@@ -41,7 +41,7 @@ https://docs.google.com/document/d/1gjTcs1Fnqjfe6XmExHJFOxIFzaHIYapmeliqLi7fKPw/
 
 ## API
 
-BASE URL: 
+BASE URL: https://african-marketplace-trackteam.herokuapp.com/
 test account:
 
 ```json
