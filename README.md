@@ -89,15 +89,9 @@ response data:
 
 ```json
 {
-  "message": "Registration successful",
-  "user": {
-    "id": 1,
-    "email": "testuser@email.com",
+    "user_id": 1,
     "username": "testuser",
-    "fistName": "Jane",
-    "lastName": "Doe"
-  },
-  "authorization": "really.long.token"
+    "token": "The long token will be shown here"
 }
 ```
 
@@ -116,12 +110,9 @@ response data:
 
 ```json
 {
-  "user": {
-    "id": 1,
-    "email": "testuser@email.com",
-    "username": "testuser"
-  },
-  "authorization": "really.long.token"
+    "user_id": 1,
+    "username": "testuser",
+    "token": "The long token will be shown here"
 }
 ```
 
