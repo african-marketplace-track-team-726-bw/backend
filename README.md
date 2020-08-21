@@ -55,17 +55,20 @@ test account:
 
 #### Table of Contents
 
-| Type   | Path                            | Notes                           |
-| ------ | ------------------------------- | ------------------------------- |
-| POST    | `/auth/register`               | register a new user             |
-| POST    | `/auth/login`                  | login an existing user          |
-| POST    | `/items`                       | add new item                    |
-| GET     | `/items`                       | list items                      |
-| PUT     | `/auth/items/:name`            | update item                     |
-| PUT     | `/auth/user/:username`         | Update username                 |
-| GET     | `/items/:category_id`          | Get items by category           |
-| DELETE  | `/items/:name`                 | remove items                    |
-| DELETE  | `/auth/users/:username`        | Delete user                     |
+| Type   | Path                                | Notes                           |
+| ------ | ----------------------------------- | ------------------------------- |
+| POST    | `/api/auth/register`               | register a new user             |
+| POST    | `/api/auth/login`                  | login an existing user          |
+| POST    | `/api/categorys`                   | add new category                |
+| POST    | `/api/items`                       | add new item                    |
+| GET     | `/api/users`                       | list users                      |
+| GET     | `/api/categorys`                   | Get categorys                   |
+| GET     | `/api/items`                       | list items                      |
+| GET     | `/items/:category   `              | Get items by category           |
+| PUT     | `/auth/items/:name`                | update item                     |
+| PUT     | `/auth/user/:username`             | Update username                 |
+| DELETE  | `/items/:name`                     | remove items                    |
+| DELETE  | `/auth/users/:username`            | Delete user                     |
 
 
 ## Examples
@@ -115,18 +118,13 @@ response data:
     "token": "The long token will be shown here"
 }
 ```
-
-#### POST /items
+#### POST /api/categorys
 
 request data:
 
 ```json
 {
-  "user_id": 1,
-  "name": "Baskets",
-  "location": "USA",
-  "description": "Hand woven baskets",
-  "price": "$15"
+  "category": "Baskets"
 }
 ```
 
@@ -134,23 +132,68 @@ response data:
 
 ```json
 {
-  "message": "You just created a new idem, testuser ",
-  "recommendations": [
+    "data": [
+        1
+    ]
+}
+```
+#### POST /api/items
+
+request data:
+
+```json
+{
+    "category_id": 1,
+    "users_id": 1,
+    "product": "Small Woven Basket",
+    "description": "Hand made wooden Woven Basket",
+    "price": "$10.00"
+}
+```
+
+response data:
+
+```json
+{
+    "data": [
+        1
+    ]
+}
+```
+
+#### GET /api/users
+
+request data:
+
+```json
+{
+  "username": "testuser",
+  "password": "Lambda"
+}
+```
+
+response data:
+
+```json
+[
     {
-      "id": 1
+        "id": 1,
+        "email": "testuser@email.com",
+        "location": "Africa",
+        "username": "testuser",
+        "name": "Jane Doe",
+        "password": "See Token here"
     }
-  ]
-}
+]
 ```
+#### GET /api/categorys
 
-#### PUT /auth/user/:username
-
-(include auth token in headers)
 request data:
 
 ```json
 {
-  "password": "newPassword"
+  "username": "testuser",
+  "password": "Lambda"
 }
 ```
 
@@ -158,8 +201,38 @@ response data:
 
 ```json
 {
-  "message": "YOU JUST UPDATED YOUR PASSWORD, ${user}, GOOD JOB!",
-  "pwres": "int"
+    "data": [
+        {
+            "id": 1,
+            "category": "Baskets"
+        }
+    ]
+}
+```
+#### GET /api/items
+
+request data:
+
+```json
+{
+  "username": "testuser",
+  "password": "Lambda"
 }
 ```
 
+response data:
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "users_id": 1,
+            "category_id": 1,
+            "product": "Small Woven Basket",
+            "description": "Hand made wooden Woven Basket",
+            "price": "$10.00"
+        }
+    ]
+}
+```
