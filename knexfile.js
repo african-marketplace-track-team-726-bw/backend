@@ -43,11 +43,11 @@ module.exports = {
   testing: {
     client: 'sqlite3',
     connection: {
-      filename: './database2/auth-test.db3'
+      filename: './database/auth-test.db3'
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './database2/migrations',
+      directory: './database/migrations',
       tablename: 'dbmigrations',
     },
     seeds: {

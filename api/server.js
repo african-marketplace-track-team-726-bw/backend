@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -10,7 +11,8 @@ const itemsRouter = require('../items/itemsRouter');
 const categoryRouter = require('../categorys/categoryRouter.js')
 const authenticate = require('../auth/authenticate.js');
 
-const server = express();
+// const server = express();
+const app = express();
 
 const sessionConfig = {
   name: 'auth',
@@ -33,25 +35,42 @@ const sessionConfig = {
   )
 };
 
-server.use(helmet());
-server.use(cors());
-server.use(express.json());
+// server.use(helmet());
+// server.use(cors());
+// server.use(express.json());
 
-server.use(session(sessionConfig));
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
 
-server.use('/api/auth', authRouter);
-server.use('/api/users', authenticate, usersRouter);
-server.use('/api/items', authenticate, itemsRouter);
-server.use('/api/categorys', authenticate, categoryRouter);
+// server.use(session(sessionConfig));
 
-server.use('/', (req, res) => {
-    res.send(`
-        <h2>Hey your API is up</h2>
-    `);
+app.use(session(sessionConfig));
+
+// server.use('/api/auth', authRouter);
+// server.use('/api/users', authenticate, usersRouter);
+// server.use('/api/items', authenticate, itemsRouter);
+// server.use('/api/categorys', authenticate, categoryRouter);
+
+app.use('/api/auth', authRouter);
+app.use('/api/users', authenticate, usersRouter);
+app.use('/api/items', authenticate, itemsRouter);
+app.use('/api/categorys', authenticate, categoryRouter);
+
+// server.use('/', (req, res) => {
+//     res.send(`
+//         <h2>Hey your API is up</h2>
+//     `);
+//   });
+
+app.use(express.static('public'));
+
+  // server.use((err, req, res, next) => {
+  //   res.status(err.code).json(err)
+  // });
+
+  app.use((err, req, res, next) => {
+    res.status(err.code).json(err);
   });
 
-  server.use((err, req, res, next) => {
-    res.status(err.code).json(err)
-  });
-
-module.exports = server;
+module.exports = app;
