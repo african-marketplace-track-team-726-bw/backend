@@ -3,12 +3,44 @@
 
 // Start Styles
 body {
-    background-color: #ddd;
+    background-color: @mainbg;
+    color: @font;
 
-    .btn {
-        font-size: inherit;
-        margin-bottom: 10px;
+    // Header
+    header {
+        .flexrow();
+        background-color: @navbg;
+        justify-content: center;
+        border: @border;
+        .header {
+            .flexcolumn();
+            margin: .5em;
+                h2 {
+                    padding: .5em 1em;
+                    font-size: 2em;
+                }
+        }
+        nav {
+            .flexrow();
+            margin: .5em;
+            a {
+                text-decoration: none;
+                font-size: 1.2em;
+                padding: .5em;
+                margin: .5em;
+                border: @border;
+                background-color: @mainbg;
+                color: @font;
+            }
+        }
     }
+    .main {
+        .flexcolumn();
+        h3 {
+            font-size: 1.1em;
+        }
+    }
+
 }
 
 
