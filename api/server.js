@@ -8,7 +8,8 @@ const knexSessionStore = require('connect-session-knex')(session);
 const authRouter = require('../auth/authRouter.js');
 const usersRouter = require('../users/usersRouter.js');
 const itemsRouter = require('../items/itemsRouter');
-const categoryRouter = require('../categorys/categoryRouter.js')
+const categoryRouter = require('../categorys/categoryRouter.js');
+const idRouter = require('../items/idRouter.js');
 const authenticate = require('../auth/authenticate.js');
 
 // const server = express();
@@ -56,6 +57,8 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', authenticate, usersRouter);
 app.use('/api/items', authenticate, itemsRouter);
 app.use('/api/categorys', authenticate, categoryRouter);
+app.use('/api', idRouter);
+
 
 // server.use('/', (req, res) => {
 //     res.send(`

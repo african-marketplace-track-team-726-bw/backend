@@ -15,13 +15,21 @@ router.get('/', (req, res) => {
         .catch((err) => console.log(err));
 });
 
-router.get('/:category_id', (req, res) => {
-    const {category_id} = req.params;
-    db('items')
-        .where('category_id', category_id)
-        .then((items) => res.status(200).json({data: items}))
-        .catch((err) => console.log(err))
-});
+// router.get('/:categorys_id', (req, res) => {
+//     const {categorys_id} = req.params;
+//     db('items')
+//         .where('categorys_id', categorys_id)
+//         .then((items) => res.status(200).json({data: items}))
+//         .catch((err) => console.log(err))
+// });
+
+// router.get('/users/:users_id', (req, res) => {
+//     const {users_id} = req.params;
+//     db('items')
+//         .where('users_id', users_id)
+//         .then((items) => res.status(200).json({data: items}))
+//         .catch((err) => console.log(err))
+// });
 
 // Post Requests
 router.post('/', (req, res) => {

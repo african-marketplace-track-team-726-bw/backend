@@ -17,7 +17,7 @@ exports.up = function(knex) {
       .createTable('items', tbl => {
         tbl.increments();
         tbl.integer('users_id').unsigned().notNullable().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE');
-        tbl.integer('category_id').unsigned().notNullable().references('id').inTable('categorys').onUpdate('CASCADE').onDelete('CASCADE');
+        tbl.integer('categorys_id').unsigned().notNullable().references('id').inTable('categorys').onUpdate('CASCADE').onDelete('CASCADE');
         tbl.string('product').notNullable();
         tbl.string('description').notNullable();
         tbl.string('price').notNullable();
