@@ -5,7 +5,6 @@ const validate = require('../api/validate.js');
 
 // Base URL /api/items
 
-router.use('/:id', validate.user);
 
 // Get Requests
 router.get('/', (req, res) => {
