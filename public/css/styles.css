@@ -222,7 +222,6 @@ body .main {
 body .main .docs-nav {
   width: 20%;
   min-width: 380px;
-  position: sticky;
   overflow: auto;
   float: left;
   padding: 1em;
