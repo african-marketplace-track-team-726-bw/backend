@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
 });
 
 // Put Request
-router.put('/:id', validate.loggedon, (req, res) => {
+router.put('/:id', (req, res) => {
     const {id} = req.params;
     const changes = req.body;
     db('items')
@@ -66,7 +66,7 @@ router.put('/:id', validate.loggedon, (req, res) => {
 });
 
 // Delete Request
-router.delete('/:id', validate.loggedon, (req, res) => {
+router.delete('/:id', (req, res) => {
     const {id} = req.params;
     db('items')
         .where('id', id)
