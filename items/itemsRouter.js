@@ -15,6 +15,15 @@ router.get('/', (req, res) => {
         .catch((err) => console.log(err));
 });
 
+router.get('/:id', (req, res) => {
+    const {id} = req.params;
+    db.select('*')
+        .from('items')
+        .where('id', id)
+        .then(items => res.status(200).json({data: items}))
+        .catch((err) => console.log(err));
+})
+
 // router.get('/:categorys_id', (req, res) => {
 //     const {categorys_id} = req.params;
 //     db('items')
