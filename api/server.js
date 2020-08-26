@@ -55,8 +55,8 @@ app.use(session(sessionConfig));
 
 app.use('/api/auth', authRouter);
 app.use('/api/users', authenticate, usersRouter);
-app.use('/api/items', authenticate, itemsRouter);
-app.use('/api/categorys', authenticate, categoryRouter);
+app.use('/api/items', itemsRouter);
+app.use('/api/categorys', categoryRouter);
 app.use('/api', idRouter);
 
 
